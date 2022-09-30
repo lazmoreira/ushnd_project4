@@ -15,10 +15,12 @@ class Config(object):
     SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'lazoadmin'
     SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or 'Thunderbolt@13'
 
-    params = urllib.parse.quote_plus("DRIVER={SQL Server};"+f"SERVER={SQL_SERVER};DATABASE={SQL_DATABASE};UID={SQL_USER_NAME};PWD={SQL_PASSWORD}")
-    SQLALCHEMY_DATABASE_URI = "mssql+pyodbc:///?odbc_connect=%s" % params
+    #Local setup
+    #params = urllib.parse.quote_plus("DRIVER={SQL Server};"+f"SERVER={SQL_SERVER};DATABASE={SQL_DATABASE};UID={SQL_USER_NAME};PWD={SQL_PASSWORD}")
+    #SQLALCHEMY_DATABASE_URI = "mssql+pyodbc:///?odbc_connect=%s" % params
+    
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
-    # SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
+    SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     ### Info for MS Authentication ###
