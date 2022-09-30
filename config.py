@@ -29,7 +29,7 @@ class Config(object):
     # if not CLIENT_SECRET:
     #     raise ValueError("Need to define CLIENT_SECRET environment variable")
 
-    AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
+    AUTHORITY = "https://login.microsoftonline.com/cab89e55-6750-4a18-a435-adeda2d4b339"  # For multi-tenant app, else put tenant name
     # AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 
     CLIENT_ID = "0e5870ff-1dde-4853-bf3f-a7146267146e"
