@@ -1,5 +1,5 @@
 import os
-#import urllib.parse 
+import urllib.parse 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -16,11 +16,11 @@ class Config(object):
     SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or 'Thunderbolt@13'
 
     #Local setup
-    #params = urllib.parse.quote_plus("DRIVER={SQL Server};"+f"SERVER={SQL_SERVER};DATABASE={SQL_DATABASE};UID={SQL_USER_NAME};PWD={SQL_PASSWORD}")
-    #SQLALCHEMY_DATABASE_URI = "mssql+pyodbc:///?odbc_connect=%s" % params
+    params = urllib.parse.quote_plus("DRIVER={SQL Server};"+f"SERVER={SQL_SERVER};DATABASE={SQL_DATABASE};UID={SQL_USER_NAME};PWD={SQL_PASSWORD}")
+    SQLALCHEMY_DATABASE_URI = "mssql+pyodbc:///?odbc_connect=%s" % params
     
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
-    SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
+    #SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     ### Info for MS Authentication ###
@@ -35,7 +35,7 @@ class Config(object):
     # if not CLIENT_SECRET:
     #     raise ValueError("Need to define CLIENT_SECRET environment variable")
 
-    AUTHORITY = "https://login.microsoftonline.com/cab89e55-6750-4a18-a435-adeda2d4b339"  # For multi-tenant app, else put tenant name
+    AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
     # AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 
     CLIENT_ID = "0e5870ff-1dde-4853-bf3f-a7146267146e"
